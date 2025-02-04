@@ -84,6 +84,7 @@ public class LevelManager : MonoBehaviour
         }
     public void LoadLevel()
     {
+     GameManager.Instance.IsBgMusicPlay=true;
      mCurrentLevel=GameManager.Instance.GetLeveLNumber();
      GenerateCards((int)GameManager.Instance.GetGridSizeData().RowGrid,(int)GameManager.Instance.GetGridSizeData().ColumnGrid,GenerateRandomCards(GenerateSprites(GameManager.Instance.GetGridSizeData(),mCurrentLevel)),GameManager.Instance.GetGridSizeData());
      SoundManager.Instance.BgMusicPlay();
@@ -253,6 +254,7 @@ int extrachanceclickCount=(int)Mathf.Floor(totalMatchpairs/2);
      if(mIscompleted)
      {
      SoundManager.Instance.BgMusicStop();
+     GameManager.Instance.IsBgMusicPlay=false;
      GamePlayViewHandlerCS.StopTimer();
      StartCoroutine(GameCompletedShowUITimer());
    
